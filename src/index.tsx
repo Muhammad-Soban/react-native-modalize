@@ -262,6 +262,11 @@ const ModalizeBase = (
       newPosition = 'top';
     }
 
+    setModalPosition(newPosition);
+
+    if (onPositionChange) {
+      onPositionChange(newPosition);
+    }
     Animated.parallel([
       Animated.timing(overlay, {
         toValue: alwaysOpenValue && dest === 'default' ? 0 : 1,
@@ -294,12 +299,6 @@ const ModalizeBase = (
     ]).start(() => {
       if (onOpened) {
         onOpened();
-      }
-
-      setModalPosition(newPosition);
-
-      if (onPositionChange) {
-        onPositionChange(newPosition);
       }
     });
   };
