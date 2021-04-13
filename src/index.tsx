@@ -262,6 +262,10 @@ const ModalizeBase = (
       newPosition = 'top';
     }
 
+    if (!adjustToContentHeight && newPosition === 'top') {
+      setDisableScroll(false);
+    }
+
     setModalPosition(newPosition);
 
     if (onPositionChange) {
