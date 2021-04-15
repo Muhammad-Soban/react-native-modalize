@@ -304,6 +304,7 @@ const ModalizeBase = (
       if (onOpened) {
         onOpened();
       }
+      setLastSnap(0);
     });
   };
 
